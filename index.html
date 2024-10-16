@@ -49,7 +49,8 @@
         }
         .search-container input {
             padding: 10px;
-            width: 300px;
+            width: 100%; /* Ширина 100% для адаптации */
+            max-width: 300px; /* Максимальная ширина */
             border: none;
             border-radius: 25px;
             font-size: 16px;
@@ -99,6 +100,29 @@
             width: 20px; /* Размер логотипа */
             margin-right: 5px; /* Отступ между логотипом и текстом */
         }
+
+        /* Медиа-запросы для адаптации интерфейса */
+        @media (max-width: 768px) {
+            .card {
+                width: 90%; /* Ширина карточек для планшетов и телефонов */
+            }
+            h1 {
+                font-size: 1.5em; /* Уменьшение размера заголовка */
+            }
+        }
+
+@media (max-width: 480px) {
+            h1 {
+                font-size: 1.2em; /* Еще меньше размер заголовка для мобильных */
+            }
+            .search-container input {
+                max-width: 100%; /* Ширина 100% на мобильных */
+            }
+            .open-button, .youtube-button {
+                width: 100%; /* Кнопки на всю ширину */
+                font-size: 14px; /* Уменьшение размера шрифта */
+            }
+        }
     </style>
 </head>
 <body>
@@ -114,13 +138,14 @@
         <input type="text" id="searchInput" placeholder="Поиск...">
     </div>
 
-<div id="cardsContainer">
+    <div id="cardsContainer">
         <div class="card" data-key="combat-system">
             <img src="images/combat-system.jpg" alt="Боевая система">
             <h2>Боевая система</h2>
             <p>В системе используются следующие скрипты:<br> LocalScript: x3<br> ServerScript: x2<br> ServerStorage: x4</p>
             <button class="open-button" onclick="openCombatSystem()">Открыть карточку</button>
         </div>
+    </div>
 
     <script>
         const searchInput = document.getElementById('searchInput');
@@ -128,10 +153,6 @@
 
         function openCombatSystem() {
             window.location.href = 'combat-system.html'; // Переход на страницу карточки
-        }
-
-        function openAnotherSystem() {
-            window.location.href = 'another-system.html'; // Переход на страницу карточки
         }
 
         // Поиск карточек
