@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Боевая система для Roblox Studio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c; /* Темный фон */
+            color: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #8a2be2; /* Фиолетовый заголовок */
+            text-align: center;
+        }
+        .script-block {
+            background-color: #2e2e2e; /* Более светлый черный */
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 1px solid #8a2be2; /* Фиолетовая рамка */
+        }
+        .script-block h2 {
+            color: #8a2be2;
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background-color: #8a2be2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #6b1bb7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Боевая система</h1>
+    <p>Здесь представлены скрипты для боевой системы. Указано, куда их вставлять и какой это тип скрипта.</p>
+
+    <div class="script-block">
+        <h2>1. Скрипт для атаки</h2>
+        <p><strong>Тип скрипта:</strong> ServerScript</p>
+        <p><strong>Куда вставлять:</strong> Внутрь модели игрока (в папку <code>StarterCharacterScripts</code>)</p>
+        <pre>
+            <code>
+// ServerScript для атаки
+local function Attack(player)
+    print(player.Name .. " атакует!")
+end
+            </code>
+        </pre>
+    </div>
+
+    <div class="script-block">
+        <h2>2. Локальный скрипт для управления игроком</h2>
+        <p><strong>Тип скрипта:</strong> LocalScript</p>
+        <p><strong>Куда вставлять:</strong> Внутрь папки <code>StarterPlayerScripts</code></p>
+        <pre>
+            <code>
+// LocalScript для управления
+local player = game.Players.LocalPlayer
+local function OnKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.E then
+        print("Игрок атакует!")
+    end
+end
+game:GetService("UserInputService").InputBegan:Connect(OnKeyPress)
+            </code>
+        </pre>
+    </div>
+
+    <button onclick="window.location.href='index.html'">Назад на главную</button>
+</body>
+</html>

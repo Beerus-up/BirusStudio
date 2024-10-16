@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скрипты Roblox Studio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c; /* Темный фон */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative; /* Добавлено для позиционирования кнопок */
+        }
+        h1 {
+            color: #8a2be2;
+        }
+        .card {
+            background-color: #2e2e2e; /* Более светлый черный */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px; /* Увеличено для предотвращения налегания */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            vertical-align: top; /* Для правильного выравнивания карточек */
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h2 {
+            color: #8a2be2;
+        }
+        .card p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .card:hover {
+            transform: scale(1.05); /* Увеличение карточки при наведении */
+            box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.7); /* Фиолетовый неоновый эффект */
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-container input {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            background-color: #2e2e2e;
+            transition: all 0.3s;
+            outline: none;
+        }
+        .search-container input::placeholder {
+            color: #666;
+        }
+        .search-container input:hover,
+        .search-container input:focus {
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
+        }
+        .open-button {
+            background-color: #8a2be2; /* Фиолетовый цвет кнопки */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Добавлено для увеличения при наведении */
+        }
+        .open-button:hover {
+            background-color: #7a1fa0; /* Темнее при наведении */
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+        .youtube-button {
+            background-color: #ff0000; /* Красный цвет YouTube */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center; /* Центрирование по вертикали */
+            justify-content: center; /* Центрирование по горизонтали */
+            font-size: 16px;
+        }
+        .youtube-button:hover {
+            background-color: #cc0000; /* Темнее при наведении */
+        }
+        .youtube-button img {
+            width: 20px; /* Размер логотипа */
+            margin-right: 5px; /* Отступ между логотипом и текстом */
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в мой блог по Roblox Studio!</h1>
+
+    <div class="social-buttons" style="position: absolute; top: 20px; right: 20px;">
+        <button class="youtube-button" onclick="window.open('https://www.youtube.com/ваш_канал', '_blank')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube логотип"> YouTube
+        </button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Поиск...">
+    </div>
+
+<div id="cardsContainer">
+        <div class="card" data-key="combat-system">
+            <img src="images/combat-system.jpg" alt="Боевая система">
+            <h2>Боевая система</h2>
+            <p>В системе используются следующие скрипты:<br> LocalScript: x3<br> ServerScript: x2<br> ServerStorage: x4</p>
+            <button class="open-button" onclick="openCombatSystem()">Открыть карточку</button>
+        </div>
+
+        <div class="card" data-key="another-system">
+            <img src="images/another-system.jpg" alt="Другая система">
+            <h2>Другая система</h2>
+            <p>В системе используются следующие скрипты:<br> LocalScript: x2<br> ServerScript: x3<br> ServerStorage: x1</p>
+            <button class="open-button" onclick="openAnotherSystem()">Открыть карточку</button>
+        </div>
+    </div>
+
+    <div class="card" data-key="another-system">
+        <img src="images/another-system.jpg" alt="Другая система">
+        <h2>Другая система</h2>
+        <p>В системе используются следующие скрипты:<br> LocalScript: x2<br> ServerScript: x3<br> ServerStorage: x1</p>
+        <button class="open-button" onclick="openAnotherSystem()">Открыть карточку</button>
+    </div>
+</div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cardsContainer = document.getElementById('cardsContainer');
+
+        function openCombatSystem() {
+            window.location.href = 'combat-system.html'; // Переход на страницу карточки
+        }
+
+        function openAnotherSystem() {
+            window.location.href = 'another-system.html'; // Переход на страницу карточки
+        }
+
+        // Поиск карточек
+        searchInput.addEventListener('keyup', function() {
+            const filter = searchInput.value.toLowerCase();
+            const cards = cardsContainer.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].getElementsByTagName('h2')[0];
+                if (title) {
+                    const textValue = title.textContent || title.innerText;
+                    cards[i].style.display = textValue.toLowerCase().includes(filter) ? '' : 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
